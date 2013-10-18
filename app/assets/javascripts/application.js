@@ -15,8 +15,10 @@
 //= require turbolinks
 //= require lib/angular/angular.js
 //= require lib/angular/angular-route.js
+//= require lib/angular/angular-resource.js
 //= require lib/bootstrap.min.js
 //= require lib/holder.js
+//= require_tree ./app/components/
 //= require_tree ./app/controllers/
 //= require_tree ./app/
 //= require ./app/application.js

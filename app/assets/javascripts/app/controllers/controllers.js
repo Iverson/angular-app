@@ -27,10 +27,26 @@ angular.module('app.controllers', []).
     }
     
   }).
-  controller('PostsListController', function($scope) {
-    $scope.posts = [
-      {id: 1, title: 'HTML&CSS', image: '/assets/courses/html_css.svg', desc: 'Learn the fundamentals of design, front-end development, and crafting user experiences that are easy on the eyes.'},
-      {id: 2, title: 'JavaScript', image: '/assets/courses/javascript.svg', desc: 'Spend some time with this powerful scripting language and learn to build lightweight applications with enhanced user interfaces.'},
-      {id: 3, title: 'Ruby on Rails', image: '/assets/courses/ruby.svg', desc: 'Master your Ruby skills and increase your Rails street cred by learning to build dynamic, sustainable applications for the web.'}
-    ];
+  controller('PostsListController', function($scope, Post) {
+    $scope.posts = Post.query();
+  }).
+  controller('PostsFormController', function($scope, $routeParams, $location, Post) {
+    $scope.isNew = true;
+    
+    if ($routeParams.id) {
+      $scope.isNew = false;
+    }
+    
+    $scope.post = $scope.isNew ? {} : Post.get({id: $routeParams.id});
+
+    $scope.submit = function() {
+      if ($scope.isNew) {
+        Post.save($scope.post, function() {
+          $location.path( $scope.posts_path() );
+        });
+      } else {
+        $scope.post.$update();
+      }
+      
+    }
   });
