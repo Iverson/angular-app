@@ -19,3 +19,7 @@ input.ng-invalid.ng-dirty, textarea.ng-invalid.ng-dirty {
 input.ng-valid, textarea.ng-valid {
  border: 1px solid green;
 }
+
+div {
+  zoom: 1;
+}

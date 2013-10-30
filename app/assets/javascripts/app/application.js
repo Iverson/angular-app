@@ -35,7 +35,7 @@ app.config(function($routeProvider) {
     .when('/:page',
       {
         controller: 'PagesController',
-        template: '<div ng-include="templateUrl">Loading...</div>',
+        template: '<div ng-include="templateUrl">Loading...</div>'
       })
     .otherwise({redirectTo: '/'});
 });

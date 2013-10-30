@@ -22,3 +22,5 @@
 //= require_tree ./app/controllers/
 //= require_tree ./app/
 //= require ./app/application.js
+//= require websocket_rails/main
+

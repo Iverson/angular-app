@@ -33,7 +33,8 @@ group :doc do
 end
 
 gem 'rails_admin'
-gem "devise"
+gem 'devise'
+gem 'websocket-rails'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

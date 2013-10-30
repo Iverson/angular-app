@@ -30,4 +30,17 @@ angular.module('app.directives', []).
         }
       });
     };
-  }]);
+  }]).
+  directive('chat', function() {
+    return function(scope, elm, attrs) {
+      if (window.chatController) {
+        window.chatController.resume();
+      } else {
+        window.chatController = new Chat.Controller(elm.data('uri'), true);
+      }
+      
+      scope.$on('$routeChangeStart', function(next, current) {
+        chatController.closeConnection();
+      });
+    };
+  });
