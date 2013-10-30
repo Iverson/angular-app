@@ -47,6 +47,5 @@ angular.module('app.controllers', []).
       } else {
         $scope.post.$update();
       }
-      
     }
   });

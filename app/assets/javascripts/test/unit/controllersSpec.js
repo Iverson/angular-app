@@ -2,15 +2,16 @@
 
 /* jasmine specs for controllers go here */
 
-describe('controllers', function(){
-  beforeEach(module('myApp.controllers'));
+describe('App controllers', function() {
+  beforeEach(module('app.controllers'));
 
+  describe('IndexController', function() {
 
-  it('should ....', inject(function() {
-    //spec body
-  }));
+    it('create "features" model with 3 features', inject(function($rootScope, $controller) {
+      var scope = $rootScope.$new(),
+      ctrl = $controller("IndexController", {$scope: scope });
 
-  it('should ....', inject(function() {
-    //spec body
-  }));
+      expect(scope.features.length).toBe(3);
+    }));
+  });
 });
