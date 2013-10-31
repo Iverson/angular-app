@@ -1,35 +1,37 @@
-var Model = function($resource, $rootScope, name) {
-  var model = $resource( "/" + name + "s/:id.json", {id: "@id"}, 
+var Model = function($resource, $rootScope, resourcePath, name) {
+  var model = $resource( resourcePath + "s/:id.json", {id: "@id"}, 
   {
     update: {method: "PUT"}
   });
   
-  this.generateRoutesHelpers(name, $rootScope);
+  var prefix = '/';
+
+  this.generateRoutesHelpers(name, prefix, $rootScope);
   
   return model;
 }
 
 Model.prototype = {
-  generateRoutesHelpers: function(name, $rootScope)
-  {
+  generateRoutesHelpers: function(name, prefix, $rootScope)
+  {  
     $rootScope[name + 's_path'] = function() {
-      return '/' + name + 's';
+      return prefix + name + 's';
     };
     
     $rootScope[name + '_path'] = function(obj) {
       var id = (typeof obj === 'object') ? obj.id : obj;
       
-      return '/' + name + 's/' + id;
+      return prefix + name + 's/' + id;
     };
     
     $rootScope['new_' + name+  '_path'] = function() {
-      return '/' + name + 's/new';
+      return prefix + name + 's/new';
     };
     
     $rootScope['edit_' + name+  '_path'] = function(obj) {
       var id = (typeof obj === 'object') ? obj.id : obj;
       
-      return '/' + name + 's/' + id + '/edit';
+      return prefix + name + 's/' + id + '/edit';
     };
   }
 }

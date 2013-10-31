@@ -3,14 +3,23 @@ AngularApp::Application.routes.draw do
   
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
   
-  get "index/index"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
   root 'index#index'
   
-  resources :posts
+  namespace :api do
+    resources :posts
+  end
+  
+  if Rails.version >= '4.0.0'
+    match "/websocket", :to => WebsocketRails::ConnectionManager.new, via: [:get, :post]
+  else
+    match "/websocket", :to => WebsocketRails::ConnectionManager.new
+  end
+  
+  get '*path' => 'index#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
