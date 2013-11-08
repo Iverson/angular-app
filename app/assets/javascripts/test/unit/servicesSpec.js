@@ -2,8 +2,8 @@
 
 var $httpBackend,
     url = {
-      query: "/posts/.json",
-        get: "/posts/2.json"
+      query: "/api/posts/.json",
+        get: "/api/posts/2.json"
     },
     response = {
       query: [],
