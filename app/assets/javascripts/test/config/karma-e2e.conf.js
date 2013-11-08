@@ -5,20 +5,22 @@ module.exports = function(config){
     basePath : '../',
 
     files : [
-        'test/e2e/**/*.js'
+        'e2e/**/*.js'
     ],
 
-    autoWatch : false,
+    autoWatch : true,
 
     browsers : ['Chrome'],
 
     frameworks: ['ng-scenario'],
 
-    singleRun : true,
+    singleRun : false,
 
     proxies : {
-      '/': 'http://localhost:8000/'
+      '/': 'http://localhost:3000/'
     },
+    
+    urlRoot: '__karma__',
 
     plugins : [
             'karma-junit-reporter',

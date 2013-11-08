@@ -19,7 +19,7 @@ AngularApp::Application.routes.draw do
     match "/websocket", :to => WebsocketRails::ConnectionManager.new
   end
   
-  get '*path' => 'index#index'
+  get '/:path' => 'index#index', constraints: { path: /(?!.*assets)(.*)/ }
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
