@@ -17,12 +17,11 @@ angular.module('app.directives', []).
     return function(scope, elm, attrs) {
       var clazz = attrs.activeLink;
       var link = elm.find('a')[0];
-      var path = link.hash;
-      path = path.substring(1); //hack because path does bot return including hashbang
+      var path = link.getAttribute('href');
+      //path = path.substring(1); //hack because path does bot return including hashbang
       scope.location = location;
       
       scope.$watch('location.path()', function(newPath) {
-        elm.attr('route', newPath);
         if (path === newPath) {
           elm.addClass(clazz);
         } else {
