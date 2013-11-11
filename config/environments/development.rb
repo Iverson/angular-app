@@ -28,4 +28,6 @@ AngularApp::Application.configure do
   config.assets.debug = true
   
   #config.threadsafe!
+  
+  config.allow_concurrency = true
 end

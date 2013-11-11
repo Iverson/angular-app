@@ -9,6 +9,8 @@ module.exports = function(config){
       '../app/**/*.js',
       'unit/**/*.js'
     ],
+    
+    exclude: ['../lib/angular/angular-loader*.js'],
 
     autoWatch : true,
 

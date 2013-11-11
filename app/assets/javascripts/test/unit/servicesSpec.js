@@ -2,11 +2,11 @@
 
 var $httpBackend,
     url = {
-      query: "/api/posts/.json",
+      query: "/api/posts.json",
         get: "/api/posts/2.json"
     },
     response = {
-      query: [],
+      query: [{}, {}, {}],
         get: {title: "Second post", description: "Many text"}
     };
 
@@ -38,7 +38,7 @@ describe('Services', function() {
       var posts = Post.query();
       $httpBackend.flush();
       
-      expect(posts).toEqual([]);
+      expect(posts.length).toEqual(3);
     }));
     
     it('get model from server', inject(function(Post) {

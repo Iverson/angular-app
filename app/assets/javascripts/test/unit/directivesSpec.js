@@ -11,7 +11,7 @@ describe('directives', function() {
         html;
 
     beforeEach(function (){
-      html = '<li active-link="active"><a href="#/posts">Blog</a></li>';
+      html = '<li active-link="active"><a href="/posts">Blog</a></li>';
 
       inject(function($compile, $rootScope) {
         scope = $rootScope.$new();
