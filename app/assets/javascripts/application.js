@@ -16,6 +16,7 @@
 //= require lib/angular/angular.js
 //= require lib/angular/angular-route.js
 //= require lib/angular/angular-resource.js
+//= require lib/angular/angular-animate.js
 //= require lib/bootstrap.min.js
 //= require lib/holder.js
 //= require_tree ./app/components/

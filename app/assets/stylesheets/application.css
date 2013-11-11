@@ -23,3 +23,41 @@ input.ng-valid, textarea.ng-valid {
 div {
   zoom: 1;
 }
+
+.b-content {
+}
+
+.ng-enter {
+  -webkit-animation: enter 1s cubic-bezier(.17,.67,.83,.67);
+  animation: enter 1s cubic-bezier(.17,.67,.83,.67);
+}
+
+.ng-leave {
+  -webkit-animation: enter 1s ease-out reverse;
+  animation: enter 1s ease-out reverse;
+  height: 0;
+}
+
+@-webkit-keyframes enter {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes enter {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
